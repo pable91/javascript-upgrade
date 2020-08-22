@@ -1,0 +1,26 @@
+div {
+  width: 250px;
+  height: 250px;
+  background-color: aquamarine;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  position: fixed;
+  left: 60%;
+  top: 1%;
+}
+
+button {
+  display: inline;
+  /* height: 20px; */
+}
+
+.button01 {
+}
+
+.button02 {
+}
+
+.button03 {
+}
