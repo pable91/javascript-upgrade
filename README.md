@@ -2,6 +2,6 @@
 
 - WEB APIs
 - DOM
-- Event loop
+- Render Tree
 - Event
 - Refactoring tips
