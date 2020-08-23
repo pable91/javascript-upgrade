@@ -1,0 +1,21 @@
+body {
+  background-color: black;
+  text-align: center;
+}
+
+div {
+  /* background-color: blue; */
+}
+
+img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+button {
+  position: sticky;
+  top: 1%;
+  background-color: red;
+}
