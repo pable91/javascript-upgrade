@@ -1,2 +1,7 @@
-# practice
- html, css, javascript practice
+# javascript-upgrade
+
+- WEB APIs
+- DOM
+- Render Tree
+- Event
+- Refactoring tips
