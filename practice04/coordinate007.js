@@ -7,21 +7,24 @@ const up = document.querySelector(".up");
 const left = document.querySelector(".left");
 
 function renderLine(e) {
-  up.style.left = e.clientX + "px";
-  left.style.top = e.clientY + "px";
+  up.style.transform = `translateX(${e.clientX}px)`;
+  left.style.transform = `translateY(${e.clientY}px)`;
 }
 
 function renderCoordinate(e) {
+  const x = e.clientX + 20;
+  const y = e.clientY + 20;
+
   coordinate.style.position = "absolute";
-  coordinate.style.left = e.clientX + 20 + "px";
-  coordinate.style.top = e.clientY + 20 + "px";
+  coordinate.style.transform = `translate(${x}px, ${y}px)`;
   coordinate.style.color = "white";
   coordinate.innerText = `${e.clientX} : ${e.clientY} `;
 }
 
 function renderTarget(e) {
-  target.style.left = e.clientX - t.width / 2 + "px";
-  target.style.top = e.clientY - t.height / 2 + "px";
+  const x = e.clientX - t.width / 2;
+  const y = e.clientY - t.height / 2;
+  target.style.transform = `translate(${x}px, ${y}px)`;
 }
 
 function targetMove(e) {
