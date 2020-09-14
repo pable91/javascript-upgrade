@@ -1,0 +1,25 @@
+div {
+  width: 500px;
+}
+
+.app {
+  text-align: center;
+  border-style: solid;
+}
+
+.app__space {
+  height: 500px;
+  text-align: left;
+}
+
+.app__input {
+  display: block;
+  width: 493px;
+  height: 40px;
+}
+
+.app__button {
+  background-color: orange;
+  height: 40px;
+  width: 70px;
+}
