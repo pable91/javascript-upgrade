@@ -1,14 +1,15 @@
 const form = document.querySelector(".app__form");
 const space = document.querySelector(".app__space");
 const input = document.getElementsByClassName("app__input");
-
+const Addbutton = document.querySelector(".app__button");
 const ul = document.querySelector("ul");
 
 function delItem(e) {
   const list = ul.querySelectorAll("li");
   var i;
   for (i = 0; i < list.length; ++i) {
-    if (list[i].value === e.target.value) {
+    console.log(list[i].value, e.target.value);
+    if (list[i].value == e.target.value) {
       ul.removeChild(list[i]);
       ul.removeChild(e.target);
     }
@@ -49,8 +50,16 @@ function keyupFunc(e) {
   }
 }
 
+function buttonFunc() {
+  if (input[0].value != "") {
+    AddIteminList(input[0].value);
+    input[0].value = "";
+  }
+}
+
 function init() {
   document.addEventListener("keyup", keyupFunc);
+  Addbutton.addEventListener("click", buttonFunc);
 }
 
 init();
