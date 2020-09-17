@@ -1,15 +1,33 @@
+body {
+  background-color: #ced3df;
+}
+
 div {
   width: 500px;
+}
+
+.header {
+  font-size: 24px;
+  height: 40px;
+  padding: 8px;
 }
 
 .app {
   text-align: center;
   border-style: solid;
+  background-color: #f1f0f7;
+  border-radius: 20px;
 }
 
 .app__space {
   height: 500px;
+  background-color: #f1f0f7;
   text-align: left;
+  overflow-y: auto;
+}
+
+ul {
+  margin: 0;
 }
 
 .app__input {

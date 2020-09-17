@@ -8,7 +8,7 @@ function delItem(e) {
   const list = ul.querySelectorAll("li");
   var i;
   for (i = 0; i < list.length; ++i) {
-    if (list[i].innerText == e.target.value) {
+    if (list[i].value === e.target.value) {
       ul.removeChild(list[i]);
       ul.removeChild(e.target);
     }
@@ -16,25 +16,36 @@ function delItem(e) {
 }
 
 function AddIteminList(value) {
-  const li = document.createElement("li");
-  li.innerText = value;
-  li.style.listStyle = "none";
-  li.style.display = "inline-block";
-  li.style.width = "400px";
+  const div = document.createElement("div");
+  div.style.display = "flex";
+  div.style.justifyContent = "space-between";
+  div.style.width = "400px";
+
+  const span = document.createElement("span");
+  span.innerText = value;
 
   const button = document.createElement("button");
   button.value = value;
   button.innerText = "X";
   button.addEventListener("click", delItem);
 
+  div.appendChild(span);
+  div.appendChild(button);
+
+  const li = document.createElement("li");
+  li.value = value;
+  li.style.listStyle = "none";
+  li.appendChild(div);
+
   ul.appendChild(li);
-  ul.appendChild(button);
 }
 
 function keyupFunc(e) {
   if (e.code == "Enter") {
-    AddIteminList(input[0].value);
-    input[0].value = "";
+    if (input[0].value != "") {
+      AddIteminList(input[0].value);
+      input[0].value = "";
+    }
   }
 }
 
