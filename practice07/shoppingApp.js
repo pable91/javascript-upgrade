@@ -5,13 +5,13 @@ const Addbutton = document.querySelector(".app__button");
 const ul = document.querySelector("ul");
 
 function AddIteminList(value) {
-  const li = document.createElement("li");
-  li.style.listStyle = "none";
+  const item = document.createElement("li");
+  item.style.listStyle = "none";
 
-  const div = document.createElement("div");
-  div.style.display = "flex";
-  div.style.justifyContent = "space-between";
-  div.style.width = "400px";
+  const itemDiv = document.createElement("div");
+  itemDiv.style.display = "flex";
+  itemDiv.style.justifyContent = "space-between";
+  itemDiv.style.width = "400px";
 
   const span = document.createElement("span");
   span.innerText = value;
@@ -20,15 +20,16 @@ function AddIteminList(value) {
   delbutton.value = value;
   delbutton.innerText = "X";
   delbutton.addEventListener("click", () => {
-    ul.removeChild(li);
+    ul.removeChild(item);
   });
 
-  div.appendChild(span);
-  div.appendChild(delbutton);
+  itemDiv.appendChild(span);
+  itemDiv.appendChild(delbutton);
 
-  li.appendChild(div);
+  item.appendChild(itemDiv);
+  ul.appendChild(item);
 
-  ul.appendChild(li);
+  item.scrollIntoView({ block: "center" });
 }
 
 function keyupFunc(e) {
