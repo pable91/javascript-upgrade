@@ -1,22 +1,13 @@
 const form = document.querySelector(".app__form");
 const space = document.querySelector(".app__space");
-const input = document.getElementsByClassName("app__input");
+const input = document.querySelector(".app__input");
 const Addbutton = document.querySelector(".app__button");
 const ul = document.querySelector("ul");
 
-function delItem(e) {
-  const list = ul.querySelectorAll("li");
-  var i;
-  for (i = 0; i < list.length; ++i) {
-    console.log(list[i].value, e.target.value);
-    if (list[i].value == e.target.value) {
-      ul.removeChild(list[i]);
-      ul.removeChild(e.target);
-    }
-  }
-}
-
 function AddIteminList(value) {
+  const li = document.createElement("li");
+  li.style.listStyle = "none";
+
   const div = document.createElement("div");
   div.style.display = "flex";
   div.style.justifyContent = "space-between";
@@ -25,17 +16,16 @@ function AddIteminList(value) {
   const span = document.createElement("span");
   span.innerText = value;
 
-  const button = document.createElement("button");
-  button.value = value;
-  button.innerText = "X";
-  button.addEventListener("click", delItem);
+  const delbutton = document.createElement("button");
+  delbutton.value = value;
+  delbutton.innerText = "X";
+  delbutton.addEventListener("click", () => {
+    ul.removeChild(li);
+  });
 
   div.appendChild(span);
-  div.appendChild(button);
+  div.appendChild(delbutton);
 
-  const li = document.createElement("li");
-  li.value = value;
-  li.style.listStyle = "none";
   li.appendChild(div);
 
   ul.appendChild(li);
@@ -43,17 +33,18 @@ function AddIteminList(value) {
 
 function keyupFunc(e) {
   if (e.code == "Enter") {
-    if (input[0].value != "") {
-      AddIteminList(input[0].value);
-      input[0].value = "";
+    if (input.value != "") {
+      AddIteminList(input.value);
+      input.value = "";
     }
   }
 }
 
 function buttonFunc() {
-  if (input[0].value != "") {
-    AddIteminList(input[0].value);
-    input[0].value = "";
+  if (input.value != "") {
+    AddIteminList(input.value);
+    input.value = "";
+    input.focus();
   }
 }
 
