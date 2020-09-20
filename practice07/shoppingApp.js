@@ -17,11 +17,7 @@ function AddIteminList(value) {
   span.innerText = value;
 
   const delbutton = document.createElement("button");
-  delbutton.value = value;
   delbutton.innerText = "X";
-  delbutton.addEventListener("click", () => {
-    ul.removeChild(item);
-  });
 
   itemDiv.appendChild(span);
   itemDiv.appendChild(delbutton);
@@ -52,6 +48,12 @@ function buttonFunc() {
 function init() {
   document.addEventListener("keyup", keyupFunc);
   Addbutton.addEventListener("click", buttonFunc);
+  ul.addEventListener("click", (e) => {
+    if (e.target.tagName == "BUTTON") {
+      const tmp = e.target.parentNode;
+      ul.removeChild(tmp.parentNode);
+    }
+  });
 }
 
 init();
